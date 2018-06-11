@@ -15,6 +15,13 @@ import com.mas.blockchain.model.TransactionOutput;
 import com.mas.blockchain.util.SHA256;
 import com.mas.blockchain.util.Utils;
 
+/**
+ * 
+ * @author Marcos Santos
+ * Description: Sample that show how can we work with blockchain and wallet.
+ *
+ */
+
 public class Transaction {
 
 	public static final Logger LOGGER = LoggerFactory.getLogger(Transaction.class);

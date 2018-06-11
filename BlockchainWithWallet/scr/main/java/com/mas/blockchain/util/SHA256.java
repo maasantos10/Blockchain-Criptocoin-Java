@@ -5,6 +5,13 @@ import java.security.MessageDigest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * 
+ * @author Marcos Santos
+ * Description: Sample that show how can we work with blockchain and wallet.
+ *
+ */
+
 public class SHA256 {
 	
 	public static final Logger LOGGER = LoggerFactory.getLogger(SHA256.class);

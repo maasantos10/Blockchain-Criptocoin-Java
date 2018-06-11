@@ -15,6 +15,13 @@ import org.slf4j.LoggerFactory;
 import com.google.gson.GsonBuilder;
 import com.mas.blockchain.transaction.Transaction;
 
+/**
+ * 
+ * @author Marcos Santos
+ * Description: Sample that show how can we work with blockchain and wallet.
+ *
+ */
+
 public class Utils {
 
 	public static final Logger LOGGER = LoggerFactory.getLogger(Utils.class);

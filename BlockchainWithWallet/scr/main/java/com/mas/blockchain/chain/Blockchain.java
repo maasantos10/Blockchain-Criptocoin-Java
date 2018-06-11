@@ -16,6 +16,13 @@ import com.mas.blockchain.model.TransactionOutput;
 import com.mas.blockchain.util.Utils;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
+/**
+ * 
+ * @author Marcos Santos
+ * Description: Sample that show how can we work with blockchain and wallet.
+ *
+ */
+
 public class Blockchain {
 	
 	public static final Logger LOGGER = LoggerFactory.getLogger(Blockchain.class);
@@ -38,20 +45,20 @@ public class Blockchain {
 		walletTwo = new Wallet();		
 		Wallet coinExchange = new Wallet();
 		
-		//create genesis transaction, which sends 1000 MasCoin to walletOne: 
+		//create first transaction, which sends 1000 MasCoin to walletOne: 
 		firstTransaction = new Transaction(coinExchange.publicKey, walletOne.publicKey, 1000f, null);
-		firstTransaction.generateSignature(coinExchange.privateKey);	 //manually sign the genesis transaction	
+		firstTransaction.generateSignature(coinExchange.privateKey);	 //manually sign the first transaction	
 		firstTransaction.transactionId = "0"; //manually set the transaction id
 		firstTransaction.outputs.add(new TransactionOutput(firstTransaction.reciepient, firstTransaction.value, firstTransaction.transactionId)); //manually add the Transactions Output
 		UTXOs.put(firstTransaction.outputs.get(0).id, firstTransaction.outputs.get(0)); //its important to store our first transaction in the UTXOs list.
 		
 		LOGGER.info("Creating and Mining the First block... ");
-		Block genesis = new Block("0");
-		genesis.addTransaction(firstTransaction);
-		addBlock(genesis);
+		Block first = new Block("0");
+		first.addTransaction(firstTransaction);
+		addBlock(first);
 		
 		//testing
-		Block block1 = new Block(genesis.hash);
+		Block block1 = new Block(first.hash);
 		LOGGER.info("walletOne's balance is: " + walletOne.getBalance());
 		LOGGER.info("walletOne is Attempting to send funds (60) to walletTwo...");
 		block1.addTransaction(walletOne.sendFunds(walletTwo.publicKey, 60f));
